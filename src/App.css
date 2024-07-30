@@ -11,6 +11,21 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
 }
 
 .chat-content {
@@ -25,6 +40,9 @@
   overflow-y: auto;
   flex: 1;
   margin-bottom: 10px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .typing {
@@ -37,51 +55,36 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
-  max-width: 80%;
   word-wrap: break-word;
+  position: relative;
+  max-width: 150px;
 }
 
 .user-message {
-  align-self: flex-start;
-  background-color: #dcf8c6;
+  align-self: flex-end;
+  background-color: white;
+  color: black;
+  text-align: right;
+  width: fit-content;
 }
 
 .chat-message {
-  align-self: flex-end;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  align-self: flex-start;
+  background-color: #dcf8c6;
+  text-align: left;
+  width: fit-content;
 }
 
 .input-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .questions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  height: 200px; /* Фіксована висота для питань */
-  overflow-y: auto; /* Прокрутка для питань */
-}
-
-.questions button {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  cursor: pointer;
-  text-align: center; /* Центрування тексту */
-  white-space: nowrap; /* Забороняє перенос тексту */
-  overflow: hidden; /* Приховує текст, що виходить за межі */
-  text-overflow: ellipsis; /* Додає три крапки для довгого тексту */
-}
-
-.questions button:hover {
-  background-color: #3e8e41;
+  height: 200px;
+  overflow-y: auto;
 }
 
 input {
@@ -91,45 +94,44 @@ input {
   border: 1px solid #ccc;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3e8e41;
-}
-
-/* .open-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 18px;
-  font-weight: bold;
-} */
-
 .chat-icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #4CAF50;
-  color: #fff;
+  bottom: 10px;
+  right: 10px;
   font-size: 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+} 
+
+button {
+  margin: 5px 0;
+  padding: 10px;
+  cursor: pointer;
 }
 
-.chat-icon:hover {
+.input-container button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input-container button:hover {
   background-color: #3e8e41;
 }
